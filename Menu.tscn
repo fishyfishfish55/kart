@@ -1,0 +1,221 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://assets/track-layout.jpg" type="Texture" id=1]
+[ext_resource path="res://UI/airstrike.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/kart/Materials/brakeMaterial.tres" type="Material" id=3]
+[ext_resource path="res://assets/kart/Materials/gasPedal.material" type="Material" id=4]
+[ext_resource path="res://assets/kart/Materials/SsklTires.material" type="Material" id=5]
+[ext_resource path="res://assets/kart/Materials/bumermaterial.material" type="Material" id=6]
+[ext_resource path="res://assets/kart/Materials/trim.material" type="Material" id=7]
+[ext_resource path="res://assets/kart/left.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://assets/kart/Materials/SsklGlas.material" type="Material" id=9]
+[ext_resource path="res://assets/kart/Materials/kartThemeTest.tres" type="Material" id=10]
+[ext_resource path="res://assets/kart/kart.obj" type="ArrayMesh" id=11]
+[ext_resource path="res://assets/kart/right.obj" type="ArrayMesh" id=12]
+[ext_resource path="res://assets/kart/steering_wheel.obj" type="ArrayMesh" id=13]
+[ext_resource path="res://KartPview.gd" type="Script" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="ViewportTexture" id=3]
+viewport_path = NodePath("MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Viewport")
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 940.0
+margin_bottom = 386.0
+custom_constants/separation = 38
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 920.0
+margin_bottom = 45.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer"]
+margin_left = 11.0
+margin_right = 909.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 1 )
+text = "Really Really Cool Kart Racing"
+align = 1
+valign = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 83.0
+margin_right = 920.0
+margin_bottom = 328.0
+custom_constants/separation = 46
+
+[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+margin_right = 920.0
+margin_bottom = 51.0
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer2"]
+margin_left = 387.0
+margin_right = 532.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 2 )
+text = "Play"
+
+[node name="CenterContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+margin_top = 97.0
+margin_right = 920.0
+margin_bottom = 148.0
+custom_constants/separation = 57
+alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer3"]
+margin_left = 289.0
+margin_right = 449.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 2 )
+text = "Multi"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer3"]
+margin_left = 506.0
+margin_right = 631.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 2 )
+text = "Join"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+margin_top = 194.0
+margin_right = 920.0
+margin_bottom = 245.0
+custom_constants/separation = 177
+alignment = 1
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 223.0
+margin_right = 519.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 2 )
+text = "Customize"
+
+[node name="Viewport" type="Viewport" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+size = Vector2( 100, 100 )
+
+[node name="Camera" type="Camera" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Viewport"]
+transform = Transform( 1, 0, 0, 0, 0.89762, 0.44077, 0, -0.44077, 0.89762, 0.273, 1.221, 1.678 )
+current = true
+
+[node name="Spatial" type="Spatial" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Viewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.342404, 0 )
+script = ExtResource( 14 )
+
+[node name="MeshInstance" type="MeshInstance" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Viewport/Spatial"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, 0.573136, 0.56286, 0.404467 )
+mesh = ExtResource( 12 )
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 9 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Viewport/Spatial"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, 0.573088, 0.563, -0.602786 )
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 9 )
+material/1 = ExtResource( 5 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Viewport/Spatial"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, -0.556912, 0.563, 0.404669 )
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 9 )
+material/1 = ExtResource( 5 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Viewport/Spatial"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, -0.556912, 0.563, -0.603786 )
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 9 )
+material/1 = ExtResource( 5 )
+
+[node name="Body2" type="MeshInstance" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Viewport/Spatial"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, 0.00617789, 0.58149, -0.0967057 )
+mesh = ExtResource( 11 )
+material/0 = ExtResource( 7 )
+material/1 = ExtResource( 6 )
+material/2 = ExtResource( 6 )
+material/3 = ExtResource( 7 )
+material/4 = ExtResource( 4 )
+material/5 = ExtResource( 3 )
+material/6 = ExtResource( 3 )
+material/7 = ExtResource( 7 )
+material/8 = null
+material/9 = null
+material/10 = ExtResource( 7 )
+material/11 = ExtResource( 10 )
+material/12 = ExtResource( 7 )
+material/13 = ExtResource( 3 )
+material/14 = ExtResource( 4 )
+material/15 = ExtResource( 4 )
+material/16 = ExtResource( 5 )
+material/17 = ExtResource( 6 )
+material/18 = ExtResource( 6 )
+material/19 = ExtResource( 7 )
+material/20 = ExtResource( 6 )
+material/21 = ExtResource( 7 )
+material/22 = ExtResource( 10 )
+material/23 = ExtResource( 3 )
+material/24 = ExtResource( 3 )
+material/25 = ExtResource( 4 )
+material/26 = ExtResource( 6 )
+material/27 = ExtResource( 7 )
+material/28 = ExtResource( 7 )
+material/29 = ExtResource( 7 )
+material/30 = ExtResource( 7 )
+material/31 = ExtResource( 7 )
+material/32 = ExtResource( 4 )
+material/33 = ExtResource( 4 )
+material/34 = ExtResource( 3 )
+material/35 = ExtResource( 7 )
+
+[node name="SteeringWheel" type="MeshInstance" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Viewport/Spatial"]
+transform = Transform( -5.7155e-08, 5.8044e-08, 0.5, 0.35627, 0.350816, 8.07895e-14, -0.350816, 0.35627, -8.14605e-08, 0.00608823, 0.992267, 0.21266 )
+mesh = ExtResource( 13 )
+material/0 = ExtResource( 5 )
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 696.0
+margin_right = 696.0
+margin_bottom = 51.0
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer"]
+margin_top = 25.0
+margin_right = 50.0
+margin_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource( 3 )
+expand = true
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

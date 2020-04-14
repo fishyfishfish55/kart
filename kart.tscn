@@ -1,0 +1,295 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://follow_camera.gd" type="Script" id=1]
+[ext_resource path="res://vehicle.gd" type="Script" id=2]
+[ext_resource path="res://assets/kart/left.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://assets/kart/right.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://assets/kart/steering_wheel.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://assets/kart/kart.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://assets/kart/Materials/kartThemeTest.tres" type="Material" id=7]
+[ext_resource path="res://assets/kart/Materials/SsklGlas.material" type="Material" id=9]
+[ext_resource path="res://assets/kart/Materials/trim.material" type="Material" id=10]
+[ext_resource path="res://assets/kart/Materials/SsklTires.material" type="Material" id=11]
+[ext_resource path="res://assets/kart/Materials/bumermaterial.material" type="Material" id=12]
+[ext_resource path="res://assets/kart/Materials/gasPedal.material" type="Material" id=13]
+[ext_resource path="res://assets/kart/Materials/brakeMaterial.tres" type="Material" id=14]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.5
+
+[sub_resource type="ConvexPolygonShape" id=2]
+points = PoolVector3Array( -1.69238, 0.225742, 0.0119033, -1.69238, 0.259823, 0.0119033, -1.69238, 0.259823, 0.556893, -1.65828, 0.191679, 0.591009, -1.59017, 0.191679, 0.693213, -1.55611, 0.0895051, 0.0119033, -1.55611, 0.0895051, 0.625053, -1.52204, 0.259823, 0.761447, -1.49108, 0.257222, 0.75, -1.48796, 0.0895051, 0.0119033, -1.48796, 0.0895051, 0.659096, -1.48796, 0.259823, 0.0119033 )
+
+[sub_resource type="ConvexPolygonShape" id=3]
+points = PoolVector3Array( -1.86275, -0.0808957, 0.284451, -1.86275, -0.0808957, 0.522913, -1.86275, 0.0894718, 0.284451, -1.86275, 0.0894718, 0.522913, -1.52202, 0.0894718, 0.625153, -1.51498, 0.0933834, -0.00225174, -1.48794, -0.0808957, 0.284451, -1.48794, -0.0808957, 0.522913, -1.48794, 0.0553683, 0.625153, -1.48794, 0.0894718, 0.625153, -1.47932, 0.0577183, -0.00227869 )
+
+[sub_resource type="ConvexPolygonShape" id=4]
+points = PoolVector3Array( -1.69238, 0.225742, -0.533209, -1.69238, 0.225742, 0.0117533, -1.69238, 0.259823, -0.533209, -1.69238, 0.259823, 0.0117533, -1.62421, 0.225742, -0.669527, -1.55611, 0.0895051, -0.635543, -1.55611, 0.0895051, 0.0117533, -1.52204, 0.259823, -0.771861, -1.49813, 0.0979815, -0.610113, -1.49366, 0.255071, -0.75, -1.48796, 0.0895051, 0.0117533, -1.48796, 0.225742, -0.771861, -1.48796, 0.259823, 0.0117533 )
+
+[sub_resource type="ConvexPolygonShape" id=5]
+points = PoolVector3Array( -1.86275, -0.0808957, -0.533223, -1.86275, -0.0808957, -0.294885, -1.86275, 0.0553683, -0.533223, -1.86275, 0.0894718, -0.499256, -1.86275, 0.0894718, -0.294885, -1.52202, 0.0894718, -0.635567, -1.51498, 0.0933834, 0.0266939, -1.48794, -0.0808957, -0.533223, -1.48794, -0.0808957, -0.294885, -1.48794, 0.0553683, -0.635567, -1.48794, 0.0894718, -0.635567, -1.47932, 0.0577183, 0.0267223 )
+
+[sub_resource type="ConvexPolygonShape" id=6]
+points = PoolVector3Array( -1.86272, -0.251263, -1.18069, -1.86272, -0.251263, -0.874124, -1.86272, -0.183043, -1.24884, -1.86272, 0.157592, -1.24884, -1.86272, 0.225766, -1.18069, -1.86272, 0.225766, -0.874124, -1.82863, -0.251263, -0.874124, -1.82863, 0.225766, -0.874124, -1.76048, -0.183043, -1.31699, -1.76048, 0.191679, -1.31699, -1.76048, 0.225766, -1.28292, -1.76048, 0.225766, -0.942278, -1.6924, -0.21713, -1.31699, -1.6924, 0.191679, -1.31699, -1.65833, -0.251263, -1.28292, -1.65833, -0.251263, -1.04451, -1.65833, 0.225766, -1.04451, -1.59016, -0.251263, -1.21476, -1.59016, -0.251263, -1.14661, -1.59016, 0.225766, -1.21476, -1.59016, 0.225766, -1.14661 )
+
+[sub_resource type="ConvexPolygonShape" id=7]
+points = PoolVector3Array( -2.13531, -0.183043, -0.976295, -2.13531, -0.183043, 0.761447, -2.13531, 0.191679, -0.976295, -2.13531, 0.191679, 0.761447, -2.10124, -0.251263, -0.976295, -2.10124, -0.251263, 0.761447, -2.10124, 0.225766, -0.976295, -2.10124, 0.225766, 0.761447, -1.9, 0.218403, 0.730945, -1.89685, -0.251263, -1.14653, -1.89685, -0.251263, 0.761447, -1.87099, 0.211348, -1.12291, -1.86754, 0.151604, -1.18008, -1.86275, -0.251263, -1.14653, -1.86275, -0.251263, -0.839914, -1.86275, 0.0894651, 0.522926, -1.86275, 0.225766, -0.839914 )
+
+[sub_resource type="ConvexPolygonShape" id=8]
+points = PoolVector3Array( 0.692847, 0.0894351, -0.635353, 0.692847, 0.123505, 0.659013, 0.692847, 0.191646, -0.703594, 0.692847, 0.191646, 0.693033, 0.726948, 0.225766, -0.703594, 0.726948, 0.225766, 0.693033, 0.793234, -0.169282, -0.515015, 0.793234, -0.169282, 0.507716, 0.897282, -0.0808157, -1.01038, 0.897282, -0.0808157, 1.03404, 0.897282, 0.0894351, -1.01038, 0.897282, 0.0894351, 1.03404, 0.931382, -0.114886, -1.01038, 0.931382, -0.114886, 1.03404, 0.931382, 0.123505, -1.01038, 0.931382, 0.123505, 1.03404, 0.950067, -0.259849, -0.509372, 0.950067, -0.259849, 0.502405, 1.01356, -0.255207, -0.498854, 1.04658, -0.246355, 0.47363, 1.0677, -0.114886, -1.01038, 1.0677, -0.114886, 1.03404, 1.0677, 0.123505, -1.01038, 1.0677, 0.123505, 1.03404, 1.0723, 0.202739, 0.569742, 1.10172, -0.0808157, -1.01038, 1.10172, -0.0808157, 1.03404, 1.10172, 0.0894351, -1.01038, 1.10172, 0.0894351, 1.03404, 1.1335, -0.223062, -0.493502, 1.16146, -0.215567, -0.445362, 1.16146, -0.215567, 0.469022, 1.2837, 0.195353, 0.401987, 1.29298, 0.208024, -0.400286, 1.48819, -0.0740565, -0.401887, 1.48868, 0.0737813, -0.402437, 1.49237, 0.0748126, 0.400375, 1.49277, -0.0746047, 0.400791 )
+
+[sub_resource type="ConvexPolygonShape" id=9]
+points = PoolVector3Array( 0.215828, 0.0894685, -0.703577, 0.215828, 0.0894685, 0.693163, 0.225452, 0.218203, 0.4687, 0.227798, -0.0748907, 0.658109, 0.22988, -0.138, 0.587808, 0.23048, 0.214251, -0.4687, 0.23082, -0.137261, -0.595739, 0.230835, -0.073372, -0.659628, 0.488263, -0.149043, -0.635353, 0.488263, -0.149043, 0.62494, 0.488263, 0.225766, -0.703577, 0.488263, 0.225766, 0.693163, 0.658509, -0.0637479, -0.369799, 0.681299, 0.216756, -0.67, 0.684855, 0.21955, 0.67, 0.692764, -0.0808757, 0.454585, 0.692764, 0.0553849, -0.635353, 0.692764, 0.0553849, 0.62494 )
+
+[sub_resource type="ConvexPolygonShape" id=10]
+points = PoolVector3Array( -2.13528, -0.183043, 1.00002, -2.13528, 0.191679, 0.761447, -2.13528, 0.191679, 1.00002, -2.10119, -0.251263, 0.761447, -2.10119, -0.251263, 0.965922, -2.10119, 0.225766, 1.00002, -2.06715, -0.183043, 1.06805, -2.06715, 0.157592, 1.06805, -1.89679, -0.251263, 0.761447, -1.89679, 0.225766, 0.761447, -1.82871, 0.191679, 1.27247, -1.79467, -0.183043, 1.30652, -1.79467, 0.157592, 1.30652, -1.76057, -0.251263, 1.27247, -1.76057, -0.21713, 1.30652, -1.72653, -0.251263, 0.965922, -1.69244, 0.225766, 1.30652, -1.62022, -0.225, 1.18558, -1.61031, 0.208181, 1.19177, -1.59021, -0.251263, 1.13619, -1.59021, 0.225766, 1.13619 )
+
+[sub_resource type="ConvexPolygonShape" id=11]
+points = PoolVector3Array( 0.21467, 0.225, -0.431721, 0.21467, 0.225, 0.421307, 0.28108, 0.390523, 0.37875, 0.284025, 0.225766, -0.499043, 0.284025, 0.259869, -0.499043, 0.284025, 0.259869, 0.488629, 0.293176, 0.42593, -0.35133, 0.293174, 0.425929, 0.340918, 0.522457, 0.225766, -0.703577, 0.522457, 0.225766, 0.693163, 0.522457, 0.259869, -0.703577, 0.522457, 0.259869, 0.693163, 0.68251, 0.971061, -0.385329, 0.68251, 0.971062, 0.374916, 0.739965, 1.04141, 0.415511, 0.741908, 1.03601, -0.420099, 0.864478, 1.044, -0.428722, 0.895447, 1.03635, -0.389722, 0.895447, 1.03635, 0.410054, 0.931158, 0.668695, -0.703577, 0.931158, 0.668695, 0.693163, 1.06748, 0.225766, -0.60131, 1.06748, 0.225766, 0.590896, 1.13551, 0.225766, 0.556853, 1.31227, 0.251442, -0.40529, 1.31626, 0.247752, 0.398565, 1.44168, 0.507362, -0.662862, 1.4457, 0.506329, 0.657158, 1.47644, 0.668695, -0.703577, 1.47644, 0.668695, 0.693163, 1.49301, 0.478873, -0.555019, 1.49724, 0.477679, 0.548404, 1.50608, 0.507314, -0.598815, 1.5104, 0.506316, 0.592502, 1.5446, 0.668695, -0.635353, 1.5446, 0.668695, 0.62494 )
+
+[sub_resource type="ConvexPolygonShape" id=12]
+points = PoolVector3Array( -0.567956, 0.0895518, -0.703577, -0.567956, 0.0895518, 0.693163, -0.561135, 0.22396, 0.613971, -0.553588, 0.221992, -0.612247, -0.553387, 0.320385, -0.480681, -0.550167, -0.136668, 0.596332, -0.550157, -0.0715585, 0.661441, -0.545646, -0.133523, -0.599477, -0.545637, -0.0692009, -0.663799, -0.535324, 0.310961, 0.478838, -0.161547, 0.356653, -0.34018, -0.161547, 0.356653, 0.329766, 0.184445, 0.374367, -0.365633, 0.185356, 0.375, 0.35613, 0.193426, -0.133523, -0.599477, 0.193416, -0.0692009, -0.663799, 0.197946, -0.136668, 0.596332, 0.197936, -0.0715585, 0.661441, 0.215735, 0.0895518, -0.703577, 0.215735, 0.0895518, 0.693163 )
+
+[sub_resource type="ConvexPolygonShape" id=13]
+points = PoolVector3Array( -1.48788, 0.56641, -0.771634, -1.48788, 0.56641, 0.761274, -1.46055, 0.0416855, -0.596896, -1.46018, -0.0541122, 0.491776, -1.46015, 0.0739684, 0.619996, -1.45907, 0.681342, 0.458842, -1.45745, -0.0514812, -0.497038, -1.45532, 0.678564, -0.463089, -1.45422, 0.204218, -0.714295, -1.45422, 0.204218, 0.706425, -1.45375, 0.56641, -0.771634, -1.45375, 0.56641, 0.761274, -1.418, 0.705259, -0.42501, -1.30131, -0.120286, 0.590698, -1.30032, -0.118534, -0.596937, -1.23408, 0.806065, 0.392483, -1.23335, 0.804493, -0.399038, -1.1131, -0.0466351, -1.01038, -1.1131, -0.0466351, 1.03404, -1.1131, 0.0554857, 1.03404, -1.07906, 0.0896326, -1.01038, -1.07906, 0.0896326, 1.03404, -1.04391, -0.15, -0.756335, -1.04391, -0.15, 0.747847, -0.979953, -0.15, -0.756335, -0.951061, -0.0686553, -0.911416, -0.951061, -0.0686553, 0.935076, -0.947976, -0.15, 0.747847, -0.9173, 0.86779, -0.304188, -0.916204, 0.872804, 0.299103, -0.908785, 0.0896326, -1.01038, -0.908785, 0.0896326, 1.03404, -0.855174, 0.833155, 0.357175, -0.855049, 0.801993, -0.365148, -0.602084, 0.2259, 0.659013, -0.589554, -0.0599878, -0.67, -0.588297, -0.126268, -0.606732, -0.584673, -0.130293, 0.602707, -0.584657, -0.064702, 0.668298, -0.567955, 0.2259, -0.635353, -0.567955, 0.2259, 0.624993, -0.567955, 0.873092, -0.0562103, -0.567955, 0.873092, 0.0458501 )
+
+[sub_resource type="ConvexPolygonShape" id=14]
+points = PoolVector3Array( -1.7946, 0.498314, -0.60136, -1.7946, 0.498314, 0.590946, -1.7946, 0.566431, -0.567139, -1.7946, 0.566431, 0.590946, -1.72641, 0.259839, -0.499149, -1.72641, 0.259839, 0.488736, -1.72641, 0.46432, -0.70357, -1.65827, 0.36208, -0.771861, -1.65827, 0.36208, 0.761447, -1.65827, 0.702795, -0.567139, -1.65827, 0.702795, 0.590946, -1.62427, 0.328, -0.771861, -1.5902, 0.702795, -0.60136, -1.5902, 0.702795, 0.590946, -1.55613, 0.259839, -0.771861, -1.55613, 0.259839, 0.761447, -1.50374, 0.649398, -0.478902, -1.5014, 0.652262, 0.476559, -1.49234, 0.266155, -0.75, -1.49026, 0.263146, 0.75, -1.48797, 0.600554, -0.73764, -1.48797, 0.600554, 0.727227 )
+
+[sub_resource type="ConvexPolygonShape" id=15]
+points = PoolVector3Array( 1.56359, -0.0732514, 0.403497, 1.56657, -0.0720619, -0.405876, 1.56874, 0.0749975, -0.400005, 1.57872, -0.251263, -1.07851, 1.57872, -0.251263, 1.0681, 1.57872, 0.225766, -1.07851, 1.57872, 0.225766, 1.0681, 1.64685, -0.251263, -1.11248, 1.68094, -0.251263, 1.13626, 1.68244, 0.215241, 1.08588, 1.71499, 0.216849, -1.104, 1.749, -0.251263, -1.11248, 1.749, -0.251263, 1.13626, 1.81067, 0.146815, 1.06404, 1.85122, -0.251263, -0.942198, 1.85122, -0.251263, 0.965751, 1.85122, 0.225766, -1.01036, 1.85122, 0.225766, 0.999941, 1.8853, -0.183043, -1.01036, 1.8853, -0.183043, 0.999941, 1.8853, 0.191679, -1.01036, 1.8853, 0.191679, 0.999941 )
+
+[node name="Spatial" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0977609, 0 )
+
+[node name="Body" type="VehicleBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00808823, 0.419, -0.00133085 )
+mass = 10.2041
+physics_material_override = SubResource( 1 )
+gravity_scale = 3.0
+can_sleep = false
+engine_force = 40.0
+script = ExtResource( 2 )
+STEER_SPEED = 0.5
+body_color = Color( 0.0352941, 0.00392157, 1, 1 )
+trim_color = Color( 0.337255, 0.337255, 0.337255, 1 )
+bumper_color = Color( 0.0540161, 0.149832, 0.234375, 1 )
+engine_force_value = 120
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Body"]
+_import_path = NodePath("AnimationPlayer")
+
+[node name="Wheel1" type="VehicleWheel" parent="Body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.565048, 0.14386, 0.405798 )
+use_as_steering = true
+wheel_roll_influence = 0.0
+wheel_radius = 0.23
+wheel_rest_length = 0.073
+wheel_friction_slip = 9.0
+suspension_travel = 2.0
+suspension_stiffness = 300.0
+damping_compression = 1.0
+damping_relaxation = 1.0
+
+[node name="MeshInstance" type="MeshInstance" parent="Body/Wheel1"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, 0, 0, 0 )
+mesh = ExtResource( 4 )
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 9 )
+
+[node name="Wheel2" type="VehicleWheel" parent="Body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.565, 0.144, -0.601455 )
+use_as_traction = true
+wheel_roll_influence = 0.0
+wheel_radius = 0.23
+wheel_rest_length = 0.073
+wheel_friction_slip = 9.0
+suspension_travel = 2.0
+suspension_stiffness = 300.0
+damping_compression = 1.0
+damping_relaxation = 1.0
+
+[node name="MeshInstance" type="MeshInstance" parent="Body/Wheel2"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, 0, 0, 0 )
+mesh = ExtResource( 3 )
+material/0 = ExtResource( 9 )
+material/1 = ExtResource( 11 )
+
+[node name="Wheel3" type="VehicleWheel" parent="Body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.565, 0.144, 0.406 )
+use_as_steering = true
+wheel_roll_influence = 0.0
+wheel_radius = 0.23
+wheel_rest_length = 0.073
+wheel_friction_slip = 9.0
+suspension_travel = 2.0
+suspension_stiffness = 300.0
+damping_compression = 1.0
+damping_relaxation = 1.0
+
+[node name="MeshInstance" type="MeshInstance" parent="Body/Wheel3"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, 0, 0, 0 )
+mesh = ExtResource( 3 )
+material/0 = ExtResource( 9 )
+material/1 = ExtResource( 11 )
+
+[node name="Wheel4" type="VehicleWheel" parent="Body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.565, 0.144, -0.602455 )
+use_as_traction = true
+wheel_roll_influence = 0.0
+wheel_radius = 0.23
+wheel_rest_length = 0.073
+wheel_friction_slip = 9.0
+suspension_travel = 2.0
+suspension_stiffness = 300.0
+damping_compression = 1.0
+damping_relaxation = 1.0
+
+[node name="MeshInstance" type="MeshInstance" parent="Body/Wheel4"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, 0, 0, 0 )
+mesh = ExtResource( 3 )
+material/0 = ExtResource( 9 )
+material/1 = ExtResource( 11 )
+
+[node name="CameraBase" type="Spatial" parent="Body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00169557, 1.77836, -0.0955184 )
+
+[node name="Camera" type="Camera" parent="Body/CameraBase"]
+transform = Transform( -1, -3.25841e-07, 0, -3.07184e-07, 0.942741, 0.333527, -1.08677e-07, 0.333527, -0.942741, 0.00169557, 0.402152, -3.61806 )
+current = true
+script = ExtResource( 1 )
+
+[node name="RPM" type="Label" parent="Body"]
+margin_right = 62.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "right here"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MPH" type="Label" parent="Body"]
+margin_left = 3.0
+margin_top = 40.0
+margin_right = 65.0
+margin_bottom = 54.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "right here"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Body" type="MeshInstance" parent="Body"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, -0.00191034, 0.16249, -0.0953748 )
+mesh = ExtResource( 6 )
+material/0 = ExtResource( 10 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 10 )
+material/4 = ExtResource( 13 )
+material/5 = ExtResource( 14 )
+material/6 = ExtResource( 14 )
+material/7 = ExtResource( 10 )
+material/8 = null
+material/9 = null
+material/10 = ExtResource( 10 )
+material/11 = ExtResource( 7 )
+material/12 = ExtResource( 10 )
+material/13 = ExtResource( 14 )
+material/14 = ExtResource( 13 )
+material/15 = ExtResource( 13 )
+material/16 = ExtResource( 11 )
+material/17 = ExtResource( 12 )
+material/18 = ExtResource( 12 )
+material/19 = ExtResource( 10 )
+material/20 = ExtResource( 12 )
+material/21 = ExtResource( 10 )
+material/22 = ExtResource( 7 )
+material/23 = ExtResource( 14 )
+material/24 = ExtResource( 14 )
+material/25 = ExtResource( 13 )
+material/26 = ExtResource( 12 )
+material/27 = ExtResource( 10 )
+material/28 = ExtResource( 10 )
+material/29 = ExtResource( 10 )
+material/30 = ExtResource( 10 )
+material/31 = ExtResource( 10 )
+material/32 = ExtResource( 13 )
+material/33 = ExtResource( 13 )
+material/34 = ExtResource( 14 )
+material/35 = ExtResource( 10 )
+
+[node name="CollisionShape14" type="CollisionShape" parent="Body"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, -0.00169557, 0.16227, -0.0955184 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape13" type="CollisionShape" parent="Body"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, -0.00169557, 0.16227, -0.0955184 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape12" type="CollisionShape" parent="Body"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, -0.00169557, 0.16227, -0.0955184 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape11" type="CollisionShape" parent="Body"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, -0.00169557, 0.16227, -0.0955184 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape10" type="CollisionShape" parent="Body"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, -0.00169557, 0.16227, -0.0955184 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape9" type="CollisionShape" parent="Body"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, -0.00169557, 0.16227, -0.0955184 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="Body"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, -0.00169557, 0.16227, -0.0955184 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="Body"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, -0.00169557, 0.16227, -0.0955184 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="Body"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, -0.00169557, 0.16227, -0.0955184 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="Body"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, -0.00169557, 0.16227, -0.0955184 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="Body"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, -0.00169557, 0.16227, -0.0955184 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="Body"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, -0.00169557, 0.16227, -0.0955184 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Body"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, -0.00169557, 0.16227, -0.0955184 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Body"]
+transform = Transform( -8.14603e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -8.14603e-08, -0.00169557, 0.16227, -0.0955184 )
+shape = SubResource( 15 )
+
+[node name="Camera2" type="Camera" parent="Body"]
+transform = Transform( -1, 2.54178e-08, -3.24848e-07, 0, 0.996953, 0.0780067, 3.25841e-07, 0.0780067, -0.996953, -0.002, 0.742, -0.108 )
+far = 312.6
+
+[node name="WheelContainer" type="Spatial" parent="Body"]
+transform = Transform( -1.1431e-07, 1.16088e-07, 1, 0.712541, 0.701631, 1.61579e-13, -0.701631, 0.712541, -1.62921e-07, -0.002, 0.573267, 0.213991 )
+
+[node name="SteeringWheel" type="MeshInstance" parent="Body/WheelContainer"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+mesh = ExtResource( 5 )
+material/0 = ExtResource( 11 )
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_right = 4.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

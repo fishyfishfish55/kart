@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/airstrike.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/track-layout.jpg" type="Texture" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+font_data = ExtResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0.5, 0 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 1822.0
+margin_bottom = 420.0
+custom_constants/separation = 107
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 1792.0
+margin_bottom = 88.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer"]
+margin_right = 1792.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.992157, 0.980392, 0.980392, 1 )
+text = "Really Really Cool Kart racing"
+align = 1
+valign = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 195.0
+margin_right = 1792.0
+margin_bottom = 195.0
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+margin_top = 302.0
+margin_right = 1792.0
+margin_bottom = 390.0
+custom_fonts/font = SubResource( 2 )

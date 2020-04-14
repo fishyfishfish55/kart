@@ -1,0 +1,210 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Track/track.tres" type="MeshLibrary" id=1]
+[ext_resource path="res://assets/kart/Materials/SsklYellowPaint.material" type="Material" id=2]
+
+
+
+[node name="Track" type="GridMap"]
+mesh_library = ExtResource( 1 )
+cell_size = Vector3( 1, 0.5, 1 )
+data = {
+"cells": PoolIntArray( 2, 0, 1048580, 9, 0, 6, -65532, 0, 655371, -65530, 0, 655370, -65529, 0, 655366, -65528, 0, -2146435070, -65527, 0, 1441794, 3, 1, 655363, 9, 1, 536870918, -65530, 1, 655371, -65529, 1, 655366, -65527, 1, 655366, 6, 2, 655366, 9, 2, 6, -65531, 2, 2, -65530, 2, 1441798, -65529, 2, 655362, -65528, 2, 655363, 6, 3, 1048578, 7, 3, 1048582, 8, 3, 1048582, 9, 3, 655362, -65531, 3, 1048578, -65530, 3, 1048582, -65529, 3, 1048582, 4, 65515, 1048587, 5, 65515, 1048586, 6, 65515, 1441798, 7, 65515, 1441798, 8, 65515, 1441794, 65536, 65515, 2, 65537, 65515, 1441798, 65538, 65515, 1441798, 65539, 65515, 1441798, 1, 65516, 2, 2, 65516, 1441797, 8, 65516, 655366, 65536, 65516, 6, 1, 65517, 6, 4, 65517, 1048582, 5, 65517, 1048582, 6, 65517, 1048582, 7, 65517, 1048582, 8, 65517, 655362, 65536, 65517, 6, 1, 65518, 6, 4, 65518, 1441798, 5, 65518, -2146041850, 6, 65518, -2146041850, 7, 65518, -2146041850, 8, 65518, 1441798, 65536, 65518, 1048578, 65537, 65518, 1441798, 65538, 65518, 1441794, 1, 65519, 6, 3, 65519, 3, 9, 65519, 1441795, 65536, 65519, 2, 65537, 65519, 1441798, 65538, 65519, 655362, 0, 65520, 536870923, 1, 65520, 536870918, 2, 65520, 6, 7, 65520, 1, 8, 65520, 1441794, 10, 65520, 655366, 0, 65521, 1610612746, 1, 65521, 6, 2, 65521, 6, 7, 65521, 655363, 10, 65521, 655366, 0, 65522, 655366, 1, 65522, 6, 2, 65522, 1048578, 3, 65522, 537526273, 6, 65522, 1, 10, 65522, 1074397190, 0, 65523, 655366, 1, 65523, 6, 8, 65523, 1, 9, 65523, 1074790406, 10, 65523, 655362, 0, 65524, 537526278, 1, 65524, 1048578, 2, 65524, 655361, 0, 65525, 6, 5, 65525, 0, 0, 65526, 6, 2, 65526, 2, 3, 65526, 655361, 2, 65527, 536870918, 65534, 65527, 6, 65535, 65527, -1609170935, 2, 65528, 537919490, 65534, 65528, 655366, 3, 65529, 1441795, 65535, 65529, -1609564157, 0, 65530, 1441794, 2, 65530, -2147483646, 3, 65530, 1048582, 4, 65530, 655362, 0, 65531, -1609957370, 2, 65531, 536870918, 4, 65531, 2, 5, 65531, 1441798, 6, 65531, 538312710, 7, 65531, 538312710, 8, 65531, 1441798, 9, 65531, 538312706, 0, 65532, 1073741830, 2, 65532, 1610612742, 5, 65532, 2, 6, 65532, 538312710, 7, 65532, 1612054534, 8, 65532, 1441794, 9, 65532, 6, -65532, 65532, 11, 0, 65533, 6, 2, 65533, 536870918, 5, 65533, 1074397190, 8, 65533, 655366, 9, 65533, 6, -65532, 65533, 10, 0, 65534, 1073741830, 2, 65534, 1048578, 3, 65534, 1048582, 4, 65534, 1048582, 5, 65534, 655362, 9, 65534, -1610612730, -65532, 65534, 6, -65530, 65534, 2, -65529, 65534, 1441794, -65528, 65534, 11, 0, 65535, 6, 9, 65535, 6, -65532, 65535, 655370, -65530, 65535, 655366, -65529, 65535, 655366, -65528, 65535, -1610612726 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20038, 1.52663, -17.3586 )
+editor_only = true
+omni_range = 100.0
+
+[node name="Start1" type="CSGCombiner" parent="."]
+transform = Transform( -0.168482, -2.54401e-08, -0.184699, -3.7749e-08, 0.25, -1.92441e-15, -0.184699, -2.78888e-08, 0.168482, 4.93182, 0.299231, -10.3384 )
+
+[node name="CSGBox" type="CSGBox" parent="Start1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140867, 0, 0 )
+width = 0.485601
+height = 0.01
+depth = 0.0392845
+
+[node name="CSGBox3" type="CSGBox" parent="Start1"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0.476599, 0, -0.476808 )
+width = 0.766208
+height = 0.01
+depth = 0.0392845
+
+[node name="CSGBox2" type="CSGBox" parent="Start1"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.425847, 0, -0.0520292 )
+width = 0.157561
+height = 0.01
+depth = 0.0392845
+
+[node name="Start2" type="CSGCombiner" parent="."]
+transform = Transform( 0.168482, 0, -0.184699, 0, 0.25, 0, 0.184699, 0, 0.168482, 5.47248, 0.299489, -10.331 )
+
+[node name="CSGBox" type="CSGBox" parent="Start2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140867, 0, 0 )
+width = 0.485601
+height = 0.01
+depth = 0.0392845
+
+[node name="CSGBox3" type="CSGBox" parent="Start2"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0.476599, 0, -0.476808 )
+width = 0.766208
+height = 0.01
+depth = 0.0392845
+
+[node name="CSGBox2" type="CSGBox" parent="Start2"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.425847, 0, -0.0520292 )
+width = 0.157561
+height = 0.01
+depth = 0.0392845
+
+[node name="Start3" type="CSGCombiner" parent="."]
+transform = Transform( -0.168482, 0, -0.184699, 0, 0.25, 0, -0.184699, 0, 0.168482, 5.5114, 0.299489, -10.8744 )
+
+[node name="CSGBox" type="CSGBox" parent="Start3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140867, 0, 0 )
+width = 0.485601
+height = 0.01
+depth = 0.0392845
+
+[node name="CSGBox3" type="CSGBox" parent="Start3"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0.476599, 0, -0.476808 )
+width = 0.766208
+height = 0.01
+depth = 0.0392845
+
+[node name="CSGBox2" type="CSGBox" parent="Start3"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.425847, 0, -0.0520292 )
+width = 0.157561
+height = 0.01
+depth = 0.0392845
+
+[node name="Start4" type="CSGCombiner" parent="."]
+transform = Transform( 0.168482, 0, -0.184699, 0, 0.25, 0, 0.184699, 0, 0.168482, 6.05206, 0.299489, -10.8671 )
+
+[node name="CSGBox" type="CSGBox" parent="Start4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140867, 0, 0 )
+width = 0.485601
+height = 0.01
+depth = 0.0392845
+
+[node name="CSGBox3" type="CSGBox" parent="Start4"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0.476599, 0, -0.476808 )
+width = 0.766208
+height = 0.01
+depth = 0.0392845
+
+[node name="CSGBox2" type="CSGBox" parent="Start4"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.425847, 0, -0.0520292 )
+width = 0.157561
+height = 0.01
+depth = 0.0392845
+
+[node name="Start5" type="CSGCombiner" parent="."]
+transform = Transform( -0.168482, 0, -0.184699, 0, 0.25, 0, -0.184699, 0, 0.168482, 6.08632, 0.299489, -11.3989 )
+
+[node name="CSGBox" type="CSGBox" parent="Start5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140867, 0, 0 )
+width = 0.485601
+height = 0.01
+depth = 0.0392845
+
+[node name="CSGBox3" type="CSGBox" parent="Start5"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0.476599, 0, -0.476808 )
+width = 0.766208
+height = 0.01
+depth = 0.0392845
+
+[node name="CSGBox2" type="CSGBox" parent="Start5"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.425847, 0, -0.0520292 )
+width = 0.157561
+height = 0.01
+depth = 0.0392845
+
+[node name="Start6" type="CSGCombiner" parent="."]
+transform = Transform( 0.168482, 0, -0.184699, 0, 0.25, 0, 0.184699, 0, 0.168482, 6.62698, 0.299489, -11.3915 )
+
+[node name="CSGBox" type="CSGBox" parent="Start6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140867, 0, 0 )
+width = 0.485601
+height = 0.01
+depth = 0.0392845
+
+[node name="CSGBox3" type="CSGBox" parent="Start6"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0.476599, 0, -0.476808 )
+width = 0.766208
+height = 0.01
+depth = 0.0392845
+
+[node name="CSGBox2" type="CSGBox" parent="Start6"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.425847, 0, -0.0520292 )
+width = 0.157561
+height = 0.01
+depth = 0.0392845
+
+[node name="Start7" type="CSGCombiner" parent="."]
+transform = Transform( -0.152204, 0, -0.198328, 0, 0.25, 0, -0.198328, 0, 0.152204, 6.61021, 0.299489, -11.8035 )
+
+[node name="CSGBox" type="CSGBox" parent="Start7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140867, 0, 0 )
+width = 0.485601
+height = 0.01
+depth = 0.0392845
+
+[node name="CSGBox3" type="CSGBox" parent="Start7"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0.476599, 0, -0.476808 )
+width = 0.766208
+height = 0.01
+depth = 0.0392845
+
+[node name="CSGBox2" type="CSGBox" parent="Start7"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.425847, 0, -0.0520292 )
+width = 0.157561
+height = 0.01
+depth = 0.0392845
+
+[node name="Start8" type="CSGCombiner" parent="."]
+transform = Transform( 0.152204, 0, -0.198328, 0, 0.25, 0, 0.198328, 0, 0.152204, 7.15087, 0.299489, -11.7961 )
+
+[node name="CSGBox" type="CSGBox" parent="Start8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140867, 0, 0 )
+width = 0.485601
+height = 0.01
+depth = 0.0392845
+
+[node name="CSGBox3" type="CSGBox" parent="Start8"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0.476599, 0, -0.476808 )
+width = 0.766208
+height = 0.01
+depth = 0.0392845
+
+[node name="CSGBox2" type="CSGBox" parent="Start8"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.425847, 0, -0.0520292 )
+width = 0.157561
+height = 0.01
+depth = 0.0392845
+
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85538, 0, -9.95368 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 0.644924, 0, -0.764246, 0, 1, 0, 0.764246, 0, 0.644924, 0.669481, 0.45943, 0.761071 )
+radius = 0.03
+height = 1.21235
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 0.644924, 0, -0.764246, 0, 1, 0, 0.764246, 0, 0.644924, -0.681411, 0.45943, -0.75652 )
+radius = 0.03
+height = 1.21235
+
+[node name="CSGBox" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.75184, 0, 0.659346, 0, 1, 0, -0.659346, 0, 0.75184, 0.000353813, 0.766356, 0.000403404 )
+width = 0.001
+height = 0.495608
+depth = 1.99523
+material = ExtResource( 2 )

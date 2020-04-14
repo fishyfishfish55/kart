@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/kart_model.obj-0228e31ce5edd46c602ccd541c84e85b.mesh"
+
+[deps]
+
+files=[ "res://.import/kart_model.obj-0228e31ce5edd46c602ccd541c84e85b.mesh" ]
+
+source_file="res://assets/kart/kart_model.obj"
+dest_files=[ "res://.import/kart_model.obj-0228e31ce5edd46c602ccd541c84e85b.mesh", "res://.import/kart_model.obj-0228e31ce5edd46c602ccd541c84e85b.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
