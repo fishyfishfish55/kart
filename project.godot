@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Really Cool Karting"
-run/main_scene="res://main.tscn"
+run/main_scene="res://UI/Menu/Menu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+LoadScreen="*res://UI/LoadScreen/LoadScreen.tscn"
 
 [display]
 

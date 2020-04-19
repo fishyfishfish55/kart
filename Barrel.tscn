@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/kart/Materials/SsklYellowPaint.material" type="Material" id=1]
+
+[sub_resource type="CylinderShape" id=1]
+
+[node name="RigidBody" type="RigidBody"]
+contacts_reported = 1
+contact_monitor = true
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="."]
+height = 2.06882
+material = ExtResource( 1 )

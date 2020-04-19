@@ -9,6 +9,7 @@ const STEER_LIMIT = 0.2
 
 var steer_angle = 0
 var steer_target = 0
+export (float) var steer_damping = 0
 
 export (int) var engine_force_value = 40
 
@@ -19,8 +20,10 @@ func _ready():
 func _physics_process(delta):
 	var fwd_mps = transform.basis.xform_inv(linear_velocity).x
 	
-	steer_target = Input.get_action_strength("turn_left") - Input.get_action_strength("turn_right")
+	steer_target = (Input.get_action_strength("turn_left") - Input.get_action_strength("turn_right")) * steer_damping
 	steer_target *= STEER_LIMIT
+	
+	steering = steer_angle
 	
 	if Input.is_action_pressed("accelerate"):
 		engine_force = engine_force_value
@@ -33,17 +36,12 @@ func _physics_process(delta):
 		brake = 1
 	else:
 		brake = 0
-	if steer_target < steer_angle:
-		steer_angle -= STEER_SPEED * delta
-		if steer_target > steer_angle:
-			steer_angle = steer_target
-	elif steer_target > steer_angle:
-		steer_angle += STEER_SPEED * delta
-		if steer_target < steer_angle:
-			steer_angle = steer_target
-	$WheelContainer/SteeringWheel.rotation = Vector3(steer_angle * 3, 0, 0)
+	if (linear_velocity.length() * 3.6) * .1 > 3 and (linear_velocity.length() * 3.6) < 9:
+		gravity_scale = (linear_velocity.length() * 3.6)
+	steer_angle = steer_target
 	
-	steering = steer_angle
+	$WheelContainer/SteeringWheel.rotation = Vector3(steer_angle * 3, 0, 0)
+
 
 
 func _process(delta):

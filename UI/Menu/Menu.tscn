@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/Menu/Menu.gd" type="Script" id=1]
+[ext_resource path="res://assets/track-layout.jpg" type="Texture" id=2]
+[ext_resource path="res://UI/airstrike.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://UI/LoadScreen/LoadScreen.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 3 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+load_screen = ExtResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 940.0
+margin_bottom = 385.0
+custom_constants/separation = 38
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 920.0
+margin_bottom = 45.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer"]
+margin_left = 11.0
+margin_right = 909.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 1 )
+text = "Really Really Cool Kart Racing"
+align = 1
+valign = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 83.0
+margin_right = 920.0
+margin_bottom = 231.0
+custom_constants/separation = 46
+
+[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+margin_right = 920.0
+margin_bottom = 51.0
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer2"]
+margin_left = 387.0
+margin_right = 532.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 2 )
+text = "Play"
+
+[node name="CenterContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+margin_top = 97.0
+margin_right = 920.0
+margin_bottom = 148.0
+custom_constants/separation = 57
+alignment = 1
+
+[node name="Multi" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer3"]
+margin_left = 289.0
+margin_right = 449.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 2 )
+text = "Multi"
+
+[node name="Join" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer3"]
+margin_left = 506.0
+margin_right = 631.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 2 )
+text = "Join"
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer2/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer3/Multi" to="." method="_on_Multi_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/CenterContainer3/Join" to="." method="_on_Join_pressed"]
